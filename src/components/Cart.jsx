@@ -3,6 +3,13 @@ import React from "react";
 const Cart = ({ cart, removeFromCart, clearCart }) => {
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
+  const handleClearCart = () => {
+    if (window.confirm("¿Seguro que deseas vaciar el carrito?")) {
+      clearCart();
+      alert("El carrito se ha vaciado correctamente.");
+    }
+  };
+
   return (
     <div style={{ marginTop: "40px" }}>
       <h2>Carrito de compras</h2>
@@ -27,10 +34,11 @@ const Cart = ({ cart, removeFromCart, clearCart }) => {
               </li>
             ))}
           </ul>
+
           <h3>Total: ${total}</h3>
 
           <button
-            onClick={clearCart}
+            onClick={handleClearCart}
             style={{
               backgroundColor: "#ff6961",
               border: "none",
