@@ -16,14 +16,17 @@ const App = () => {
     setCart(newCart);
   };
 
-  return (
-  <div className="container">
-    <h1>Tienda React</h1>
-    <ProductList addToCart={addToCart} />
-    <Cart cart={cart} removeFromCart={removeFromCart} />
-  </div>
-);
+  const clearCart = () => {
+    setCart([]);
+  };
 
+  return (
+    <div className="container">
+      <h1>Tienda React</h1>
+      <ProductList addToCart={addToCart} />
+      <Cart cart={cart} removeFromCart={removeFromCart} clearCart={clearCart} />
+    </div>
+  );
 };
 
 export default App;
