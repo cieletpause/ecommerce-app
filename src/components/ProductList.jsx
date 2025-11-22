@@ -38,19 +38,37 @@ const ProductList = ({ addToCart }) => {
           <p>No se encontraron productos.</p>
         ) : (
           filteredProducts.map((product) => (
-            <li key={product.id} style={{ marginBottom: "10px" }}>
+            <li
+              key={product.id}
+              style={{
+                marginBottom: "15px",
+                border: "1px solid #ddd",
+                borderRadius: "8px",
+                padding: "15px",
+                boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+                backgroundColor: "white",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
               <span>
                 {product.name} - ${product.price}
               </span>
+
               <button
                 style={{
-                  marginLeft: "10px",
-                  padding: "5px 10px",
+                  padding: "8px 12px",
+                  backgroundColor: "#0077cc",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "5px",
                   cursor: "pointer",
+                  marginLeft: "10px",
                 }}
                 onClick={() => addToCart(product)}
               >
-                Agregar
+                Agregar al carrito
               </button>
             </li>
           ))
